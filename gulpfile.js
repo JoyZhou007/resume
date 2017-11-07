@@ -1,22 +1,29 @@
-var gulp = require('gulp');
+var gulp        = require('gulp');
+var browserSync = require('browser-sync').create();
+var sass        = require('gulp-sass');
+var minifyCSS = require('gulp-minify-css');
 
-var compass = require('gulp-compass');
+// Static Server + watching scss/html files
+gulp.task('bi-page-serve', ['bi-page-sass'], function() {
 
-gulp.task('compass', function() {
-    gulp.src('./scss/**')
-        .pipe(compass({
-            comments: false,
-            css: 'css',
-            sass: 'scss',
-            image: 'img'
-        }))
-        .pipe(gulp.dest('./css'));
+  browserSync.init({
+    server: "./",
+    port: 3002
+  });
+
+  gulp.watch("./scss/**/*.scss", ['bi-page-sass']);
+  gulp.watch("./**/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', function() {
-    gulp.run('compass');
+// Compile sass into CSS & auto-inject into browsers
 
-    gulp.watch('./scss/**', function(event) {
-        gulp.run('compass');
-    });
+gulp.task('bi-page-sass', function() {
+  return gulp.src("./scss/**/*.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest("./css"))
+    .pipe(browserSync.stream());
 });
+
+
+gulp.task('default', ['bi-page-serve']);
