@@ -1,5 +1,58 @@
 //@import "compass/reset";
 //@import "compass/css3";
+$time:0.2;
+@mixin box-sizing($sizing : content-box) {
+  -moz-box-sizing: $sizing; /* Firefox */
+  -webkit-box-sizing: $sizing; /* Safari */
+  box-sizing: $sizing;
+}
+
+@mixin newTransition($transition) {
+  @if $transition == 0 {
+    $transition: .2;
+  }
+  -webkit-transition: all #{$transition}s linear;
+  transition: all #{$transition}s linear;
+}
+
+@mixin newRadius($radius) {
+  border-radius: #{$radius}px;
+}
+
+@mixin newBoxShadow($x, $y, $b, $c, $a) {
+  @if $x != 0 {
+    $x: #{$x}px;
+  }
+  @if $y != 0 {
+    $y: #{$y}px;
+  }
+  @if $b != 0 {
+    $b: #{$b}px;
+  }
+  -webkit-box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
+  box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
+}
+*{outline: none;}
+.row::after,
+.row::before {content: "";display: inline-block;}
+article, aside, dialog, footer, header, main, section, footer, nav, figure, menu {display: block}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+body {font-size:12px;line-height:1;}
+.g-border2{@include newRadius(2);}
+.g-border4{@include newRadius(4);}
+.g-border5{@include newRadius(5);}
+.g-transition2{@include newTransition($time);}
+.g-display{display:block;}
+.clearfix::after {content: "";height: 0;display: block;clear: both;font-size: 0;visibility: hidden;}
+a {text-decoration: none;}
+a:focus, a:hover, a:link {outline: none;-moz-outline: none;text-decoration: none;}
+img {border: 0;vertical-align: top;font-size:12px;overflow: hidden;}
+html, body {height: 100%;overflow: hidden;}
+em, i {font-style: normal;}
+* + html img {-ms-interpolation-mode: bicubic;}
+ul, li, ol {list-style: none;}
+font {font-size: 12px;}
+
 
 $color-gray: #d1d1d1;
 $color-gray3: #d7d7d7;
@@ -46,37 +99,7 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
   content: "\e600";
 }
 
-@mixin box-sizing($sizing : content-box) {
-  -moz-box-sizing: $sizing; /* Firefox */
-  -webkit-box-sizing: $sizing; /* Safari */
-  box-sizing: $sizing;
-}
 
-@mixin newTransition($transition) {
-  @if $transition == 0 {
-    $transition: .2;
-  }
-  -webkit-transition: all #{$transition}s linear;
-  transition: all #{$transition}s linear;
-}
-
-@mixin newRadius($radius) {
-  border-radius: #{$radius}px;
-}
-
-@mixin newBoxShadow($x, $y, $b, $c, $a) {
-  @if $x != 0 {
-    $x: #{$x}px;
-  }
-  @if $y != 0 {
-    $y: #{$y}px;
-  }
-  @if $b != 0 {
-    $b: #{$b}px;
-  }
-  -webkit-box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
-  box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
-}
 
 .kill-ie {
   margin: 0;
@@ -172,7 +195,7 @@ a {
   .avator {
     display: block;
     width: 200px;
-    height: 200px;
+    //height: 200px;
     margin: 0 auto;
     @media screen and(max-width: 720px) {
       width: 150px;
@@ -268,10 +291,10 @@ a {
     }
     .i-js {
       .in {
-        flex: 7.5;
+        flex: 8;
       }
       .out {
-        flex: 6.5;
+        flex: 2;
       }
     }
     .i-sass {
