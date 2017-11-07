@@ -1,4 +1,30 @@
 {
-  "name": "joy-resume",
-  "version": "0.1.0"
+  "name": "joy",
+  "version": "0.1.0",
+  "description": "- 网页版简历 http://resume.toadw.cn",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoyZhou007/resume.git"
+  },
+  "keywords": [
+    "joy"
+  ],
+  "author": "joy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoyZhou007/resume/issues"
+  },
+  "homepage": "https://github.com/JoyZhou007/resume#readme"
 }

@@ -1,12 +1,11 @@
-@import "compass/reset";
-@import "compass/css3";
+//@import "compass/reset";
+//@import "compass/css3";
 
 $color-gray: #d1d1d1;
 $color-gray3: #d7d7d7;
 $color-gray2: #eee;
 $color-green: #00b38a;
 $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
-
 
 //iconfont
 @font-face {
@@ -16,25 +15,68 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
 
 .iconfont {
   color: $color-green;
-  font-family:"iconfont" !important;
-  font-size:18px;
-  font-style:normal;
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-phone:before { content: "\e622"; }
+.icon-phone:before {
+  content: "\e622";
+}
 
-.icon-github:before { content: "\e69f"; }
+.icon-github:before {
+  content: "\e69f";
+}
 
-.icon-link:before { content: "\e609"; }
+.icon-link:before {
+  content: "\e609";
+}
 
-.icon-homepage:before { content: "\e615"; }
+.icon-homepage:before {
+  content: "\e615";
+}
 
-.icon-email:before { content: "\e63b"; }
+.icon-email:before {
+  content: "\e63b";
+}
 
-.icon-dot:before { content: "\e600"; }
+.icon-dot:before {
+  content: "\e600";
+}
 
+@mixin box-sizing($sizing : content-box) {
+  -moz-box-sizing: $sizing; /* Firefox */
+  -webkit-box-sizing: $sizing; /* Safari */
+  box-sizing: $sizing;
+}
+
+@mixin newTransition($transition) {
+  @if $transition == 0 {
+    $transition: .2;
+  }
+  -webkit-transition: all #{$transition}s linear;
+  transition: all #{$transition}s linear;
+}
+
+@mixin newRadius($radius) {
+  border-radius: #{$radius}px;
+}
+
+@mixin newBoxShadow($x, $y, $b, $c, $a) {
+  @if $x != 0 {
+    $x: #{$x}px;
+  }
+  @if $y != 0 {
+    $y: #{$y}px;
+  }
+  @if $b != 0 {
+    $b: #{$b}px;
+  }
+  -webkit-box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
+  box-shadow: $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a), $x $y $b rgba($c, $a);
+}
 
 .kill-ie {
   margin: 0;
@@ -43,9 +85,11 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
   text-align: center;
   background: #fff8e2;
 }
+
 * {
   @include box-sizing(border-box);
 }
+
 body {
   color: #333;
   font-size: 14px;
@@ -60,11 +104,13 @@ body {
     padding-top: 0;
   }
 }
+
 a {
   text-decoration: none;
-  @include transition(all .2s ease-in-out);
+  @include newTransition(.2);
 }
-.last-modified{
+
+.last-modified {
   position: absolute;
   top: 30px;
   left: 50%;
@@ -77,20 +123,22 @@ a {
     display: none;
   }
 }
+
 .content {
   position: relative;
   width: 1024px;
   margin: 50px auto;
-  @include border-radius(5px);
-  @include box-shadow(0 0 15px #c0c0c0);
+  @include newRadius(5px);
+  @include newBoxShadow(0 ,0, 15, #c0c0c0, 1);
   background-color: #fff;
   overflow: hidden;
   @media screen and (max-width: 1024px) {
     width: 100%;
     margin: 0;
-    @include border-radius(0);
+    @include newRadius(0);
   }
 }
+
 .content-hd {
   width: 100%;
   height: inherit;
@@ -107,7 +155,7 @@ a {
     overflow: hidden;
     padding-bottom: 5px;
     padding-top: 40px;
-    @media screen and (max-width: 720px){
+    @media screen and (max-width: 720px) {
       padding-top: 20px;
     }
   }
@@ -121,12 +169,12 @@ a {
       text-align: center;
     }
   }
-  .avator{
+  .avator {
     display: block;
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    @media screen and(max-width: 720px){
+    @media screen and(max-width: 720px) {
       width: 150px;
       height: 150px;
     }
@@ -160,43 +208,43 @@ a {
     }
   }
   .job {
-  text-align: center;
+    text-align: center;
     color: $color-green;
-      font-size: 24px;
-      @media screen and (max-width: 720px) {
-        margin: 0 auto 0;
-        padding: 10px;
-      }
+    font-size: 24px;
+    @media screen and (max-width: 720px) {
+      margin: 0 auto 0;
+      padding: 10px;
+    }
 
   }
 
-  .skill-level{
+  .skill-level {
     padding-top: 80px;
-    h3{
+    h3 {
       color: #999;
       margin-left: 5px;
     }
-    .item{
+    .item {
       display: flex;
       width: 260px;
       height: 12px;
       border-radius: 6px;
       margin-bottom: 15px;
       background: $color-gray3;
-      .in{
+      .in {
         background: $color-green;
         height: 12px;
         width: 12px;
       }
-      .out{
+      .out {
         background: $color-gray3;
         height: 12px;
         width: 12px;
       }
-      .in:first-child{
+      .in:first-child {
         border-radius: 6px 0 0 6px;
       }
-      .out:last-child{
+      .out:last-child {
         border-radius: 0 6px 6px 0;
       }
     }
@@ -223,7 +271,7 @@ a {
         flex: 7.5;
       }
       .out {
-        flex: 3.5;
+        flex: 6.5;
       }
     }
     .i-sass {
@@ -243,7 +291,7 @@ a {
       }
     }
 
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1024px) {
       display: none;
     }
 
@@ -260,15 +308,15 @@ a {
       font-size: 16px;
       margin-top: 10px;
     }
-    @media screen and (max-width: 720px){
-      h2{
+    @media screen and (max-width: 720px) {
+      h2 {
         margin-top: 4px;
       }
     }
   }
   .contact {
     padding-top: 100px;
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1024px) {
       padding-top: 0;
 
     }
@@ -278,14 +326,14 @@ a {
         text-align: center;
         margin: 16px 0 0;
       }
-      &>li {
+      & > li {
         height: 22px;
         margin-top: 10px;
         @media screen and (max-width: 1024px) {
           display: inline-block;
           margin: 0;
         }
-        &>a {
+        & > a {
 
           color: #555;
           font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
@@ -310,6 +358,7 @@ a {
     }
   }
 }
+
 .content-bd {
   display: flex;
   min-height: 200px;
@@ -318,16 +367,16 @@ a {
 
   .content-left {
     flex: 6.5;
-    padding: 20px 30px 50px ;
+    padding: 20px 30px 50px;
     @media screen and (max-width: 1024px) {
       flex: 1 100%;
       order: 2;
-      padding: 20px 10px 50px ;
+      padding: 20px 10px 50px;
     }
   }
   .content-right {
     box-sizing: border-box;
-    padding: 20px 30px 50px ;
+    padding: 20px 30px 50px;
     flex: 3.5;
     background: #eeeeee;
     @media screen and (max-width: 1024px) {
@@ -373,7 +422,7 @@ a {
     min-width: 100px;
     margin: 0 auto;
     padding: 4px 10px;
-    @include border-radius(32px);
+    @include newRadius(32px);
     font-size: 16px;
     text-align: center;
     background-color: #eee;
@@ -430,7 +479,7 @@ a {
       font-size: 12px;
       line-height: 14px;
       border: 1px solid $color-gray;
-      @include border-radius(3px);
+      @include newRadius(3px);
       margin: 2px;
       padding: 0 3px;
       background-color: #f7f7f7;
@@ -440,7 +489,7 @@ a {
       font-size: 12px;
       line-height: 14px;
       border: 1px solid #f3f3f3;
-      @include border-radius(3px);
+      @include newRadius(3px);
       font-weight: 500;
       color: #444;
       margin: 2px;
@@ -478,6 +527,7 @@ a {
     }
   }
 }
+
 .btn {
   display: inline-block;
   padding: 0 5px;
@@ -493,6 +543,7 @@ a {
     background-color: $color-green;
   }
 }
+
 .pdf {
   display: inline-block;
   position: fixed;
@@ -512,6 +563,7 @@ a {
     margin-left: 0;
   }
 }
+
 footer {
   text-align: center;
   .footer-link {
@@ -521,12 +573,12 @@ footer {
     @media screen and (max-width: 1024px) {
       margin-top: 25px;
     }
-    .icon-link{
+    .icon-link {
       color: $color-gray;
       font-size: 16px;
     }
   }
-  &.print-footer{
+  &.print-footer {
     display: none;
   }
 }
@@ -537,27 +589,33 @@ footer {
   width: 3px;
   height: 3px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, .2);
   background-clip: padding-box;
   min-height: 15px;
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
 }
+
 ::-webkit-scrollbar-thumb:vertical:hover {
   background-color: rgba(0, 0, 0, .3);
 }
+
 ::-webkit-scrollbar-thumb:vertical:active {
   background-color: rgba(0, 0, 0, .5);
 }
+
 ::-webkit-scrollbar-button {
   height: 0;
   width: 0;
 }
+
 ::-webkit-scrollbar-track {
   background-clip: padding-box;
   border: solid transparent;
   border-width: 0 0 0 4px;
 }
+
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
@@ -566,6 +624,7 @@ footer {
   background: $color-green;
   color: #fff;
 }
+
 ::-moz-selection {
   background: $color-green;
   color: #fff;
@@ -588,16 +647,16 @@ footer {
   .content .content-hd {
     height: 1365px;
   }
-  .content .print-hidden{
+  .content .print-hidden {
     display: none;
   }
   .pdf {
     display: none;
   }
-  footer.github-footer{
+  footer.github-footer {
     display: none;
   }
-  footer.print-footer{
+  footer.print-footer {
     display: block;
   }
   footer.print-footer .footer-link {
