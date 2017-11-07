@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--[if IE]><p class="kill-ie">微软都放弃了IE，为啥你却还不放弃？</p><![endif]-->
-<a class=pdf href=resume.pdf><i class="iconfont icon-pdf"></i> PDF简历</a>
+<!--<a class=pdf href=resume.pdf><i class="iconfont icon-pdf"></i> PDF简历</a>-->
 <p class=last-modified>最后更新时间：2017年11月</p>
 <div class=content>
     <div class=content-bd>
@@ -86,6 +86,8 @@
                         <div class=item-bd>
                             <div class=section-content>
                                 <section>
+                                    账号：joy.zhou@blockbi.com
+                                    密码: 12345678
                                     使用gulp的browserSync使代码热更新，编译scss,
                                     熟练使用scss编写页面，熟练使用mixin写复用性模块化代码。
                                 </section>
@@ -96,6 +98,14 @@
                                         使用angular2的表单验证完成了表单，其中的样式运用了css3动画以及过渡，
                                         运用localStorage 和sessionStorage,存储session_id,
                                         使用npm的插件实现了截取头像的功能。其中还运用了Observable,实现全局的通知。
+                                    </section>
+                                </div>
+                                <div>
+                                    <h6><strong>2.home页</strong></h6>
+                                    <section>
+                                        tips 编写，使用了全局的自定义dialog，还用到了自定义的表单验证指令，自定义的组件，下拉菜单等。
+                                        其中做了优化，为了减少http请求，将所有的头像信息集合到一起批量请求，头像信息先从localStorage拿，如果没有,再去批量请求，从而优化速度，减少接口请求次数。
+                                        引进了date.Service格式化时间字符串。
                                     </section>
                                 </div>
                             </div>
@@ -123,6 +133,7 @@
                                         其中表单运用了angular4的自定义响应式表单，自己定义了验证器的directive,实现全局通用。
                                     </section>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -204,7 +215,8 @@
                         </li>
                         <li>
                             <p class=section-content><i
-                                class="iconfont icon-dot"></i>熟练使用<em>HTML5</em>、<em>CSS3</em>、<em>Scss</em>，能准确还原设计稿。
+                                class="iconfont icon-dot"></i>熟练使用<em>HTML5</em>、<em>CSS3</em>、<em>Scss</em>、<em>Typescript</em>
+                                、<em>Es6</em>
                             </p>
                         </li>
                         <li>
@@ -215,12 +227,25 @@
                             </p>
                         </li>
                         <li>
+                            <p class=section-content><i
+                                class="iconfont icon-dot"></i>会使用的构建工具:<em>gulp</em>、<em>webpack</em>
+                            </p>
+                        </li>
+                        <li>
                             <p class=section-content>
                                 <i class="iconfont icon-dot"></i>
                                 会点<strong>java</strong>，有点<strong>审美</strong>能力，重视<strong>用户体验</strong>
                             </p>
                         </li>
 
+                        <li>
+                            <p class=section-content>
+                                <i class="iconfont icon-dot"></i> debug能力：<em>google一下</em>
+                                <em>stackOverflow</em>
+                                <em>抵制百度</em>
+                                <em>mdn</em>
+                            </p>
+                        </li>
                         <li>
                             <p class=section-content>
                                 <i class="iconfont icon-dot"></i> 熟练使用<strong>Git</strong>进行版本控制和代码托管，
@@ -241,7 +266,7 @@
                     <div class=item>
                         <header class=item-hd>
                             <span class=item-time>上海</span>
-                            <span class=item-more>期望薪资：13k</span>
+                            <span class=item-more>期望薪资：12k</span>
                             <h3 class=item-name>web前端</h3>
                         </header>
                     </div>
@@ -272,6 +297,14 @@
                     <i class="in"></i><i class="out"></i>
                 </div>
                 <h3>ionic3</h3>
+                <div class="item i-js">
+                    <i class="in"></i><i class="out"></i>
+                </div>
+                <h3>Typescript</h3>
+                <div class="item i-js">
+                    <i class="in"></i><i class="out"></i>
+                </div>
+                <h3>ES6</h3>
                 <div class="item i-js">
                     <i class="in"></i><i class="out"></i>
                 </div>
@@ -335,26 +368,15 @@
 
     </div>
     <footer class=print-footer>
-        <a class=footer-link href=http://resume.toadw.cn target=_blank><i class="iconfont icon-link"></i>
-            网页版简历：resume.toadw.cn</a>
+        <a class=footer-link href="" target=_blank><i class="iconfont icon-link"></i>
+            网页版简历：</a>
     </footer>
 </div>
-<footer class=github-footer><a class=footer-link href=https://github.com/toadwoo/resume target=_blank><i
-    class="iconfont icon-link"></i> github.com/toadwoo/resume</a>
+<footer class=github-footer><a class=footer-link href=https://github.com/JoyZhou007/resume target=_blank><i
+    class="iconfont icon-link"></i> github.com/JoyZhou007/resume</a>
 </footer>
 
 </body>
 
-<script>
-  /* CNZZ统计 */
-  (function () {
-    var box = document.createElement("div"),
-      cnzz = document.createElement("script");
-    box.style.display = "none";
-    cnzz.src = "//s1.cnzz.com/z_stat.php?id=1261540579";
-    box.appendChild(cnzz);
-    document.body.appendChild(box);
-  })();
 
-</script>
 </html>
