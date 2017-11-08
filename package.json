@@ -1,7 +1,7 @@
 {
   "name": "joy",
   "version": "0.1.0",
-  "description": "- 网页版简历 http://resume.toadw.cn",
+  "description": "- 网页版简历 http://zhouhuan0830.applinzi.com/",
   "main": "gulpfile.js",
   "dependencies": {
     "browser-sync": "^2.18.5",
