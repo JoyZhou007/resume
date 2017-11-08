@@ -15,7 +15,7 @@ gulp.task('bi-page-serve', ['bi-page-sass'], function() {
   gulp.watch("./**/*.html").on('change', browserSync.reload);
 });
 
-// Compile sass into CSS & auto-inject into browsers
+
 
 gulp.task('bi-page-sass', function() {
   return gulp.src("./scss/**/*.scss")
